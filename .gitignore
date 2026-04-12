@@ -1,0 +1,21 @@
+# Root node_modules
+node_modules/
+
+# Frontend node_modules
+Frontend/node_modules/
+
+# build files 
+dist/ Frontend/dist/ 
+
+# environment variables env
+ Frontend/.env
+
+# logs
+  npm-debug.log* 
+  
+# OS files 
+.DS_Store Thumbs.db
+
+# IDE files 
+ .vscode/ 
+ .idea/
