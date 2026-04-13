@@ -23,7 +23,7 @@ const CartContent = () => {
     return (
         <>
             {cartProducts.map((product, index) => (
-                <div key={index} className='flex items-start justify-between py-4 border-b'>
+                <div key={index} className='flex items-start justify-between py-4 border-b border-rabbit-red'>
                     <div className='flex items-start'>
                         <img
                             src={product.image}

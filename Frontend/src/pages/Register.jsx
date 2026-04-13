@@ -64,7 +64,7 @@ const Register = () => {
                     {/* BUTTON */}
                     <button
                         type='submit'
-                        className='w-full py-3 rounded-lg font-semibold text-white bg-black  transition duration-300 shadow-md hover:shadow-lg'
+                        className='w-full py-3 rounded-lg font-semibold text-white bg-[#D4AF37] transition duration-300 shadow-md hover:shadow-lg'
                     >
                         Sign up
                     </button>

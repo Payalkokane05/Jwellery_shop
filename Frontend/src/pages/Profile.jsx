@@ -19,7 +19,7 @@ const Profile = () => {
                             john@gmail.com
                         </p>
 
-                        <button className='w-full bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition'>
+                        <button className='w-full bg-[#D4AF37]  text-white py-2 px-4 rounded hover:bg-yellow-500 transition'>
                             Logout
                         </button>
 

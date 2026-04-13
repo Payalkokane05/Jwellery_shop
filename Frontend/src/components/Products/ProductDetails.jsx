@@ -46,8 +46,8 @@ const ProductDetails = () => {
         }, 500)
     }
     return (
-        <div className='p-6'>
-            <div className='max-w-6xl mx-auto bg-white p-8 rounded-lg'>
+        <div className='p-6 bg-gray-50'>
+            <div className='max-w-6xl mx-auto bg-white p-8 rounded-lg shadow'>
                 <div className='flex flex-col md:flex-row'>
 
                     {/* left thumbnail  */}
@@ -56,7 +56,7 @@ const ProductDetails = () => {
                             <img key={index}
                                 src={image.url}
                                 alt={image.alt || `Thumbnail ${index}`}
-                                className={`w-20 h-20 object-cover rounded-lg cursor-pointer border-2 ${mainImage === image.url ? 'border-black' : 'border-gray-300'}`}
+                                className={`w-20 h-20 object-cover rounded-lg cursor-pointer border-2 transition ${mainImage === image.url ? 'border-black' : 'border-gray-300 hover:border-gray-500'}`}
                                 onClick={() => setMainImage(image.url)} />
                         ))}
                     </div>
@@ -67,7 +67,7 @@ const ProductDetails = () => {
                             <img
                                 src={mainImage}
                                 alt={selectedProduct.image[0]?.alt || "Main Image"}
-                                className='w-full h-auto object-cover rounded-lg'
+                                className='w-full h-auto object-cover rounded-lg transition duration-300 hover:scale-105'
                             />
                         </div>
                     </div>
@@ -78,7 +78,7 @@ const ProductDetails = () => {
                             <img key={index}
                                 src={image.url}
                                 alt={image.alt || `Thumbnail ${index}`}
-                                className={`w-20 h-20 object-cover rounded-lg cursor-pointer border-2 ${mainImage === image.url ? 'border-black' : 'border-gray-300'}`}
+                                className={`w-20 h-20 object-cover rounded-lg cursor-pointer border-2 transition ${mainImage === image.url ? 'border-black' : 'border-gray-300 hover:border-gray-500'}`}
                                 onClick={() => setMainImage(image.url)} />
                         ))}
                     </div>
@@ -88,27 +88,44 @@ const ProductDetails = () => {
                         <h1 className='text-2xl md:text-3xl font-bold text-gray-800 mb-4'>
                             {selectedProduct.name}
                         </h1>
-                        <p className='text-lg text-gray-600 mb-1 line-through'>
-                            ${selectedProduct.price}
+
+                        <p className='text-lg text-gray-400 mb-1 line-through'>
+                            ₹{selectedProduct.price}
                         </p>
-                        <p className='text-gray-600 mb-4 '>{selectedProduct.description}</p>
+
+                        <p className='text-gray-600 mb-4'>
+                            {selectedProduct.description}
+                        </p>
+
                         <div className='mb-4'>
                             <p className='font-medium text-gray-700'>Material: {selectedProduct.material}</p>
                             <p className='font-medium text-gray-700'>Weight: {selectedProduct.weight}g</p>
                         </div>
+
                         <div className='mb-6'>
                             <p className='text-gray-700'>Quantity:</p>
                             <div className='flex items-center space-x-4 mt-2'>
-                                <button className='px-2 py-1 bg-gray-200 rounded text-lg'
-                                    onClick={() => handleQuantityChange("minus")}>-</button>
+                                <button
+                                    className='px-2 py-1 bg-gray-200 rounded text-lg hover:bg-gray-300 transition'
+                                    onClick={() => handleQuantityChange("minus")}
+                                >
+                                    -
+                                </button>
+
                                 <span className='text-lg'>{quantity}</span>
-                                <button className='px-2 py-1 bg-gray-200 rounded text-lg'
-                                    onClick={() => handleQuantityChange("plus")} >+</button>
+
+                                <button
+                                    className='px-2 py-1 bg-gray-200 rounded text-lg hover:bg-gray-300 transition'
+                                    onClick={() => handleQuantityChange("plus")}
+                                >
+                                    +
+                                </button>
                             </div>
                         </div>
+
                         <button
                             disabled={isButtonDisable}
-                            className={`bg-black text-white py-2 px-6 rounded w-full mb-4 ${isButtonDisable ? "opacity-50 cursor-not-allowed" : ""
+                            className={`bg-black text-white py-2 px-6 rounded w-full mb-4 transition hover:bg-gray-800 ${isButtonDisable ? "opacity-50 cursor-not-allowed" : ""
                                 }`}
                             onClick={handleAddToCart}
                         >
@@ -120,6 +137,7 @@ const ProductDetails = () => {
                 </div>
             </div>
         </div>
+
     )
 }
 

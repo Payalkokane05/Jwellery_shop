@@ -123,8 +123,14 @@ const CollectionPage = () => {
             </div>
 
             <div className='flex-grow p-4'>
-                <h2 className='text-2xl uppercase mb-4'>All Collections </h2>
-                {/* Sort options */}
+                <div className="text-center mb-3 mt-5">
+                    <h2 className="text-3xl font-semibold text-gray-800">
+                        Our Exclusive Jewellery
+                    </h2>
+                    <p className="text-[#b8860b] text-sm mt-2 tracking-wide">
+                        Crafted with elegance & perfection
+                    </p>
+                </div>                {/* Sort options */}
                 <SortOption />
 
                 {/* product grid  */}

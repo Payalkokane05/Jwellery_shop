@@ -19,41 +19,82 @@ const ProductManagement = () => {
 
     }
     return (
-        <div className='max-w-7xl mx-auto p-6'>
-            <h2 className='text-2xl font-bold mb-6'>Product Management</h2>
-            <div className='overflow-x-auto shadow-md sm:rounded-lg '>
-                <table className='min-w-full text-left text-gray-500'>
-                    <thead className='bg-gray-100 text-xs uppercase text-gray-700'>
+        <div className='max-w-7xl mx-auto p-6 bg-gray-50 min-h-screen'>
+
+            <h2 className='text-2xl font-bold mb-8 text-gray-800'>
+                Product Management
+            </h2>
+
+            <div className='overflow-x-auto bg-white shadow-md rounded-xl border'>
+
+                <table className='min-w-full text-sm text-gray-600'>
+
+                    <thead className='bg-gray-100 text-xs uppercase text-gray-600'>
                         <tr>
-                            <th className='py-3 px-4'>Name</th>
-                            <th className='py-3 px-4'>Price</th>
-                            <th className='py-3 px-4'>SKU</th>
-                            <th className='py-3 px-4'>Actions</th>
+                            <th className='py-3 px-4 text-left'>Name</th>
+                            <th className='py-3 px-4 text-left'>Price</th>
+                            <th className='py-3 px-4 text-left'>SKU</th>
+                            <th className='py-3 px-4 text-left'>Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {products.length > 0 ? (products.map((product) => {
-                            return (
-                                <tr key={product.id} className='border-b hover:bg-gray-50 cursor-pointer'>
-                                    <td className='p-4 font-medium text-gray-900 whitespace-nowrap'>{product.name}</td>
-                                    <td className='p-4'>{product.price}</td>
-                                    <td className='p-4'>{product.sku}</td>
-                                    <td className='p-4'>
-                                        <Link to={`/admin/products/${product.id}/edit`} className="bg-yellow-500 text-white px-2 py-1 rounded mr-2 hover:bg-yellow-600">
-                                            Edit</Link>
-                                        <button onClick={() => { handleDelete(product.id) }} className='bg-red-500 text-white  px-2 py-1 rounded hover:bg-red-600'>Delete</button>
-                                    </td>
-                                </tr>
-                            )
-                        })) : (<tr>
-                            <td colSpan="4" className='text-center py-4'>No products found</td>
-                        </tr>
-                        )}
 
+                    <tbody>
+                        {products.length > 0 ? (
+                            products.map((product) => {
+                                return (
+                                    <tr
+                                        key={product.id}
+                                        className='border-b hover:bg-gray-50 transition'
+                                    >
+
+                                        <td className='p-4 font-medium text-gray-800 whitespace-nowrap'>
+                                            {product.name}
+                                        </td>
+
+                                        <td className='p-4 font-semibold text-gray-500]'>
+                                            ₹{product.price}
+                                        </td>
+
+                                        <td className='p-4 text-gray-500'>
+                                            {product.sku}
+                                        </td>
+
+                                        <td className='p-4 flex space-x-2'>
+
+                                            <Link
+                                                to={`/admin/products/${product.id}/edit`}
+                                                className="bg-[#b8860b] text-white px-3 py-1 rounded-lg hover:bg-yellow-700 transition text-sm"
+                                            >
+                                                Edit
+                                            </Link>
+
+                                            <button
+                                                onClick={() => { handleDelete(product.id) }}
+                                                className='bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 transition text-sm'
+                                            >
+                                                Delete
+                                            </button>
+
+                                        </td>
+
+                                    </tr>
+                                )
+                            })
+                        ) : (
+                            <tr>
+                                <td colSpan="4" className='text-center py-6 text-gray-500'>
+                                    No products found
+                                </td>
+                            </tr>
+                        )}
                     </tbody>
+
                 </table>
+
             </div>
+
         </div>
+
     )
 }
 

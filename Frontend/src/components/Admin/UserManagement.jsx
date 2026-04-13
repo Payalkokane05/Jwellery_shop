@@ -46,83 +46,130 @@ const UserManagement = () => {
         }
     }
     return (
-        <div className='max-w-7xl mx-auto p-6'>
-            <h2 className='text-2xl font-bold mb-6'>User Management</h2>
-            {/* Add new user form  */}
-            <div className='p-6 rounded-lg mb-6'>
-                <h3 className='text-lg font-bold mb-4'>Add New User</h3>
+        <div className='max-w-7xl mx-auto p-6 bg-gray-50 min-h-screen'>
+
+            <h2 className='text-2xl font-bold mb-8 text-gray-800'>
+                User Management
+            </h2>
+
+            {/* Add new user form */}
+            <div className='p-6 rounded-xl mb-8 bg-white shadow-md border'>
+                <h3 className='text-lg font-semibold mb-4 text-gray-700'>
+                    Add New User
+                </h3>
+
                 <form onSubmit={handleSubmit}>
                     <div className='mb-4'>
-                        <label className='block text-gray-700'>Name</label>
-                        <input type='text' value={formData.name} name="name"
+                        <label className='block text-sm text-gray-600 mb-1'>Name</label>
+                        <input
+                            type='text'
+                            value={formData.name}
+                            name="name"
                             onChange={handleChange}
-                            className='w-full p-2 border rounded' />
+                            className='w-full p-2 border rounded-lg focus:ring-2 focus:ring-[#b8860b] focus:outline-none'
+                        />
                     </div>
+
                     <div className='mb-4'>
-                        <label className='block text-gray-700'>Email</label>
-                        <input type='email' value={formData.email} name="email"
+                        <label className='block text-sm text-gray-600 mb-1'>Email</label>
+                        <input
+                            type='email'
+                            value={formData.email}
+                            name="email"
                             onChange={handleChange}
-                            className='w-full p-2 border rounded' />
+                            className='w-full p-2 border rounded-lg focus:ring-2 focus:ring-[#b8860b] focus:outline-none'
+                        />
                     </div>
+
                     <div className='mb-4'>
-                        <label className='block text-gray-700'>Password</label>
-                        <input type='password' value={formData.password} name="password"
+                        <label className='block text-sm text-gray-600 mb-1'>Password</label>
+                        <input
+                            type='password'
+                            value={formData.password}
+                            name="password"
                             onChange={handleChange}
-                            className='w-full p-2 border rounded' />
+                            className='w-full p-2 border rounded-lg focus:ring-2 focus:ring-[#b8860b] focus:outline-none'
+                        />
                     </div>
+
                     <div className='mb-4'>
-                        <label className='block text-gray-700'>Role</label>
-                        <select name='role' value={formData.role}
+                        <label className='block text-sm text-gray-600 mb-1'>Role</label>
+                        <select
+                            name='role'
+                            value={formData.role}
                             onChange={handleChange}
-                            className='w-full p-2 border rounded'>
+                            className='w-full p-2 border rounded-lg focus:ring-2 focus:ring-[#b8860b] focus:outline-none'
+                        >
                             <option value="admin">Admin</option>
                             <option value="customer">Customer</option>
                         </select>
                     </div>
-                    <button type='submit' className='bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600'>
+
+                    <button
+                        type='submit'
+                        className='bg-[#b8860b] text-white py-2 px-6 rounded-lg hover:bg-yellow-700 transition'
+                    >
                         Add User
                     </button>
                 </form>
             </div>
-            {/* user list  */}
-            <div className='overflow-x-auto shadow-md sm:rounded-lg'>
-                <table className='min-w-full text-xs uppercase text-gray-700'>
-                    <thead>
+
+            {/* User list */}
+            <div className='overflow-x-auto bg-white shadow-md rounded-xl border'>
+                <table className='min-w-full text-sm text-gray-600'>
+
+                    <thead className='bg-gray-100 text-xs uppercase text-gray-600'>
                         <tr>
-                            <th className='py-3 px-4'>Name</th>
-                            <th className='py-3 px-4'>Email</th>
-                            <th className='py-3 px-4'>Role</th>
-                            <th className='py-3 px-4'>Actions</th>
+                            <th className='py-3 px-4 text-left'>Name</th>
+                            <th className='py-3 px-4 text-left'>Email</th>
+                            <th className='py-3 px-4 text-left'>Role</th>
+                            <th className='py-3 px-4 text-left'>Actions</th>
                         </tr>
                     </thead>
+
                     <tbody>
                         {users.map((user) => {
                             return (
-                                <tr key={user.id} className='border-b hover:bg-gray-50'>
-                                    <td className='p-4 font-medium text-gray-900 whitespace-nowrap'>
+                                <tr key={user.id} className='border-b hover:bg-gray-50 transition'>
+
+                                    <td className='p-4 font-medium text-gray-800 whitespace-nowrap'>
                                         {user.name}
                                     </td>
+
                                     <td className='p-4'>
                                         {user.email}
                                     </td>
+
                                     <td className='p-4'>
-                                        <select value={user.role}
+                                        <select
+                                            value={user.role}
                                             onChange={(e) => handleRoleChange(user.id, e.target.value)}
-                                            className='p-2 border rounded'>
-                                            <option value="customer">Customer </option>
-                                            <option value="admin">Admin </option>
+                                            className='p-2 border rounded-lg focus:ring-2 focus:ring-[#b8860b] focus:outline-none'
+                                        >
+                                            <option value="customer">Customer</option>
+                                            <option value="admin">Admin</option>
                                         </select>
                                     </td>
+
                                     <td className='p-4'>
-                                        <button onClick={() => handleDeleteUser(user.id)} className='bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600'>Delete</button>
+                                        <button
+                                            onClick={() => handleDeleteUser(user.id)}
+                                            className='bg-red-500 text-white py-1 px-4 rounded-lg hover:bg-red-600 transition'
+                                        >
+                                            Delete
+                                        </button>
                                     </td>
+
                                 </tr>
                             )
                         })}
                     </tbody>
+
                 </table>
             </div>
+
         </div>
+
     )
 }
 
