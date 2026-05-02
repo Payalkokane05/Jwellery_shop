@@ -9,7 +9,7 @@ const AdminSidebar = () => {
     const handlelogout = () => { }
 
     return (
-        <div className='p-6 h-screen bg-[#0f0f10] text-white flex flex-col justify-between'>
+        <div className='p-6 h-full bg-[#0f0f10] text-white flex flex-col justify-between'>
 
             {/* Top */}
             <div>

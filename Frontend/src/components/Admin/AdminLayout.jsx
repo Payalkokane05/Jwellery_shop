@@ -25,7 +25,8 @@ const AdminLayout = () => {
                 </div>
             )}
             {/* sidebar  */}
-            <div className={`w-64 min-h-screen text-white absolute md:relative transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 md:translate-x-0 md:static md:block z-20`}>
+            <div className={`w-64 min-h-screen bg-[#0f0f10] text-white absolute md:relative transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+                } transition-transform duration-300 md:translate-x-0 md:static md:block z-20`}>
                 {/* sidebar component  */}
                 <AdminSidebar />
             </div>

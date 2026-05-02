@@ -67,6 +67,12 @@ const ProductManagement = () => {
                                             >
                                                 Edit
                                             </Link>
+                                            <Link
+                                                to={`/admin/products/add`}
+                                                className="bg-green-500 text-white px-3 py-1 rounded-lg hover:bg-green-700 transition text-sm"
+                                            >
+                                                Add
+                                            </Link>
 
                                             <button
                                                 onClick={() => { handleDelete(product.id) }}
